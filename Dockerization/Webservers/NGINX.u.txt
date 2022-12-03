@@ -1,0 +1,9 @@
+docker run --name mynginx1 -p 80:80 -d nginx
+
+docker ps
+
+#For Confirmation
+curl http://localhost
+
+docker exec -it NGINX_container_ID bash
+

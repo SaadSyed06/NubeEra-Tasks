@@ -1,0 +1,22 @@
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt-cache policy docker-ce
+sudo apt install docker-ce -y
+sudo systemctl status docker
+sudo apt update
+sudo apt install docker.io -y
+sudo snap install docker
+sudo systemctl status docker
+docker --version
+sudo docker search ubuntu
+sudo docker pull mysql/mysql-server:latest
+sudo docker images
+sudo docker run --name=container_name -d mysql/mysql-server:latest
+sudo apt-get install mysql-client
+sudo docker ps
+sudo docker logs mysql
+sudo docker exec -it container_name bash
+mysql -uroot -p
+mysql&gt; ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';

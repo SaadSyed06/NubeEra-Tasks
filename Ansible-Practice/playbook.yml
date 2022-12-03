@@ -1,0 +1,20 @@
+---
+- hosts: ws
+  tasks:
+    - name: Install required system packages
+      apt:
+        pkg:
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: true
+      when: ansible_os_family == "Debian"
+    
+    - name: Install required system packages
+      apk:
+        name:
+          - py-pip          
+        state: present
+        update_cache: true
+      when: ansible_os_family == "Alpine"

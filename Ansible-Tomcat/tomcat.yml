@@ -1,0 +1,24 @@
+---
+- name: install tomcat server
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Install OpenJDK
+    apt:
+      name: openjdk-11-jre-headless
+
+  - name: download tomcat server packages
+    get_url:
+      url: http://mirrors.estointernet.in/apache/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
+      dest: /usr/local
+
+  - name: extract tomcat packages
+    unarchive:
+      src: /usr/local/apache-tomcat-10.0.20.tar.gz
+      dest: /usr/local
+      remote_src: yes
+
+  - name: start tomcat services
+    shell: nohup /usr/local/apache-tomcat-10.0.20/bin/startup.sh
+    
